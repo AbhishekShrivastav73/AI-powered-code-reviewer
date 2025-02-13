@@ -5,13 +5,15 @@ function Home() {
   return (
     <div className="w-full h-screen bg-[#0D1117]">
         <div className="bg-[#0095ff] flex items-center justify-center w-full min-h-8 py-1">
-            <h6 className="text-white tracking-tighter font-semibold text-[10px] md:text-xs text-center">Compatible with JavaScript, Python, React, <br className="md:hidden"/> and other popular frameworks! 🚀</h6>
+            <h6 className="text-white tracking-tighter font-semibold text-[11.3px] md:text-xs text-center"> Supports JavaScript, Python, React, 
+
+and other popular frameworks! 🚀</h6>
         </div>
       <Navbar />
       <div className="w-full  ">
         <div className="flex flex-col items-center justify-center  h-[70vh]">
             <h3 className="text-lg md:text-2xl text-[#8B949E] font-black tracking-tighter capitalize">Used by 100+ developers</h3>
-          <h1 className="text-4xl md:text-6xl  text-[#8B949E] text-center font-black tracking-tighter">
+          <h1 className="text-4xl md:text-6xl  text-[#E6EDF3] text-center font-black tracking-tighter">
             <b className="relative text-3xl md:text-6xl text-[#0095ff]">
               {" "}
               AI-Powered Code Review

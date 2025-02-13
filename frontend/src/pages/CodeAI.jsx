@@ -19,7 +19,7 @@ function CodeAI() {
       let res = await axios.post(`http://localhost:3000/ai/get-response`, {
         code,
       });
-      console.log(res.data);
+      // console.log(res.data);
       setResponse(res.data);
       setLoading(false);
     } catch (error) {
@@ -87,7 +87,7 @@ function CodeAI() {
               }}
               onChange={(e) => {
                 setCode(e.target.value);
-                console.log(e.target.value);
+                // console.log(e.target.value);
                 e.target.style.height = "inherit";
                 e.target.style.height = `${e.target.scrollHeight}px`;
               }}
