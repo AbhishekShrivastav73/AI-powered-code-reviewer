@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "prismjs/themes/prism-tomorrow.css";
+
 textarea::-webkit-scrollbar {
     display: none;
 }

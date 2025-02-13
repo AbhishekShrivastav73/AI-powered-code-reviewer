@@ -1,33 +1,31 @@
-import { useState } from "react";
-import axios from "axios";
 import Navbar from "../Components/Navbar";
 import Loading from "../Components/Loading";
-import Markdowns from "../Components/Markdown";
+import  axios from 'axios';
+import Markdown from "react-markdown";
 
 function CodeAI() {
   const [code, setCode] = useState(``);
   const [loading, setLoading] = useState(false);
-  const [response, setResponse] = useState("");
-  const [display, setDisplay] = useState(false);
+  const [response,setResponse] = useState('');
+  const [display,setDisplay] = useState(false);
 
+  
   const handleSubmit = async () => {
-    const responseArea = document.getElementById("responseArea");
-    responseArea.scrollIntoView({ behavior: "smooth" });
     setLoading(true);
     setDisplay(true);
     try {
-      let res = await axios.post(`http://localhost:3000/ai/get-response`, {
+      let response = await axios.post(`http://localhost:3000/ai/get-response`, {
         code,
       });
-      console.log(res.data);
-      setResponse(res.data);
+      console.log(response.data);
+      setResponse(response.data);
+      setDisplay(true);
       setLoading(false);
     } catch (error) {
       console.error("Failed to get response:", error);
       setLoading(false);
     }
-  };
-
+  }
   return (
     <>
       <Navbar />
@@ -55,7 +53,7 @@ function CodeAI() {
             .
           </h1>
           <div>
-            <h2 className="text-5xl  flex flex-wrap items-center justify-center md:text-7xl mt-1 mb-2 text-[#8B949E] text-center font-black tracking-tighter">
+            <h2 className="text-5xl  flex flex-wrap items-center justify-center md:text-7xl mt-3 mb-2 text-[#8B949E] text-center font-black tracking-tighter">
               <span className="text-[#E6EDF3]">SMART</span>,
               <span className="text-[#0095ff]">FAST</span>,
               <span className="text-[#E6EDF3]">RELIABLE</span>
@@ -68,12 +66,10 @@ function CodeAI() {
           </p>
 
           <div className="bg-[#161B22] w-[85%] md:w-[70%] rounded-xl mt-12 relative p-2">
-            <button
-              onClick={handleSubmit}
-              className="bg-[#0095ff] px-4 cursor-pointer py-2 rounded-lg absolute bottom-3 right-2"
-            >
+            <button onClick={handleSubmit} className="bg-[#0095ff] cursor-pointer tracking-tight font-bold text-[#E6EDF3] px-4 py-2 rounded-lg hover:bg-[#1F6FEB] absolute bottom-3 right-2">
               <i className="ri-arrow-up-line"></i>
             </button>
+
             <textarea
               className="text-white outline-none px-4 py-2 rounded-xl w-full resize-none"
               name="code"
@@ -93,21 +89,20 @@ function CodeAI() {
               }}
             />
           </div>
-
-          <p className="text-sm text-center text-[#8B949E] mt-4">Powered by Gemini <i className="ri-gemini-fill"></i></p>
+          <p className="text-sm text-center text-[#8B949E] mt-4">
+            Powered by Gemini <i className="ri-gemini-fill"></i>
+          </p>
         </div>
 
-        <div id="responseArea" className={`${display ? "block" : "hidden"} w-full`}>
-          <div className="w-full md:w-[80%] min-h-screen mx-auto">
-            {loading ? (
-              <Loading />
-            ) : (
+        <div className={`${display ? "block" : "hidden"} w-full`}>
+          <div className="w-[80%] mx-auto p-4">
+            {loading ? <Loading/> : (
               <div className="flex flex-col gap-4">
-                <h2 className="text-3xl text-[#8B949E] text-center font-bold">
+                <h2 className="text-3xl text-[#8B949E] text-center font-bold tracking-tight">
                   AI-Code Review
                 </h2>
                 <div className="bg-[#161B22] rounded-xl p-4">
-                  <Markdowns content={response} />
+                  <Markdown className="text-white text-sm">{response}</Markdown>
                 </div>
               </div>
             )}
@@ -119,3 +114,4 @@ function CodeAI() {
 }
 
 export default CodeAI;
+

@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.6",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "axios": "^1.7.9",
     "prismjs": "^1.29.0",
     "react": "^19.0.0",
@@ -18,6 +19,7 @@
     "react-markdown": "^9.0.3",
     "react-router-dom": "^7.1.5",
     "react-simple-code-editor": "^0.14.1",
+    "react-syntax-highlighter": "^15.6.1",
     "rehype-highlight": "^4.1.0",
     "tailwindcss": "^4.0.6"
   },
