@@ -37,8 +37,9 @@ function CodeAI() {
   useEffect(() => {
     const startWebsite = async () => {
       try {
-          let response = await axios.get(    `https://ai-powered-code-reviewer-i325.onrender.com/`);
-          if (response.ok) {
+          let response = await axios.get(`https://ai-powered-code-reviewer-i325.onrender.com/`);
+          console.log(response.data);
+          if (response.data.status === "ok") {
             setIsBackendReady(true);
           }
         } catch (error) {
