@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
-  res.send("Hello, World!");
+  res.status(200).json({status: "ok"});
 });
 app.use("/ai", aiRoutes);
 

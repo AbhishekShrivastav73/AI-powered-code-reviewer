@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../Components/Navbar";
 import Loading from "../Components/Loading";
 import Markdowns from "../Components/Markdown";
+import BackendLoader from "../Components/BackendLoader";
 
 function CodeAI() {
   const [code, setCode] = useState(``);
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState("");
   const [display, setDisplay] = useState(false);
+  const [isBackendReady, setIsBackendReady] = useState(false);
 
   const handleSubmit = async () => {
     const responseArea = document.getElementById("responseArea");
@@ -16,9 +18,12 @@ function CodeAI() {
     setLoading(true);
     setDisplay(true);
     try {
-      let res = await axios.post(`http://localhost:3000/ai/get-response`, {
-        code,
-      });
+      let res = await axios.post(
+        `https://ai-powered-code-reviewer-i325.onrender.com/ai/get-response`,
+        {
+          code,
+        }
+      );
       // console.log(res.data);
       setResponse(res.data);
       setLoading(false);
@@ -28,7 +33,27 @@ function CodeAI() {
     }
   };
 
-  return (
+ 
+  useEffect(() => {
+    const startWebsite = async () => {
+      try {
+          let response = await axios.get(    `https://ai-powered-code-reviewer-i325.onrender.com/`);
+          if (response.ok) {
+            setIsBackendReady(true);
+          }
+        } catch (error) {
+          console.error("Failed to get response:", error);
+          setIsBackendReady(false);
+          setTimeout(() => {
+            startWebsite();
+          }, 3000);
+        }
+      };
+    
+    startWebsite();
+    }, []);
+
+  return isBackendReady ? (
     <>
       <Navbar />
       <div className="w-full min-h-screen text-zinc-50 bg-[#0D1117]">
@@ -78,7 +103,6 @@ function CodeAI() {
               className="text-white outline-none px-4 py-2 rounded-xl w-full resize-none"
               name="code"
               value={code}
-              
               placeholder="Enter your code here.."
               style={{
                 height: "60px",
@@ -94,10 +118,15 @@ function CodeAI() {
             />
           </div>
 
-          <p className="text-sm text-center text-[#8B949E] mt-4">Powered by Gemini <i className="ri-gemini-fill"></i></p>
+          <p className="text-sm text-center text-[#8B949E] mt-4">
+            Powered by Gemini <i className="ri-gemini-fill"></i>
+          </p>
         </div>
 
-        <div id="responseArea" className={`${display ? "block" : "hidden"} w-full`}>
+        <div
+          id="responseArea"
+          className={`${display ? "block" : "hidden"} w-full`}
+        >
           <div className="w-full md:w-[80%] min-h-screen mx-auto">
             {loading ? (
               <Loading />
@@ -115,6 +144,8 @@ function CodeAI() {
         </div>
       </div>
     </>
+  ) : (
+    <BackendLoader/>
   );
 }
 
