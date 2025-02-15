@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import Navbar from "../Components/Navbar";
 import Loading from "../Components/Loading";
@@ -12,9 +12,11 @@ function CodeAI() {
   const [display, setDisplay] = useState(false);
   const [isBackendReady, setIsBackendReady] = useState(false);
 
+  const responseAreaRef = useRef(null);
   const handleSubmit = async () => {
-    const responseArea = document.getElementById("responseArea");
-    responseArea.scrollIntoView({ behavior: "smooth" });
+    if (responseAreaRef.current) {
+      responseAreaRef.current.scrollIntoView({ behavior: "smooth" });
+    }
     setLoading(true);
     setDisplay(true);
     try {
@@ -33,26 +35,27 @@ function CodeAI() {
     }
   };
 
- 
   useEffect(() => {
     const startWebsite = async () => {
       try {
-          let response = await axios.get(`https://ai-powered-code-reviewer-i325.onrender.com/`);
-          console.log(response.data);
-          if (response.data.status === "ok") {
-            setIsBackendReady(true);
-          }
-        } catch (error) {
-          console.error("Failed to get response:", error);
-          setIsBackendReady(false);
-          setTimeout(() => {
-            startWebsite();
-          }, 3000);
+        let response = await axios.get(
+          `https://ai-powered-code-reviewer-i325.onrender.com/`
+        );
+        console.log(response.data);
+        if (response.data.status === "ok") {
+          setIsBackendReady(true);
         }
-      };
-    
+      } catch (error) {
+        console.error("Failed to get response:", error);
+        setIsBackendReady(false);
+        setTimeout(() => {
+          startWebsite();
+        }, 3000);
+      }
+    };
+
     startWebsite();
-    }, []);
+  }, []);
 
   return isBackendReady ? (
     <>
@@ -125,6 +128,7 @@ function CodeAI() {
         </div>
 
         <div
+          ref={responseAreaRef}
           id="responseArea"
           className={`${display ? "block" : "hidden"} w-full`}
         >
@@ -146,7 +150,7 @@ function CodeAI() {
       </div>
     </>
   ) : (
-    <BackendLoader/>
+    <BackendLoader />
   );
 }
 
