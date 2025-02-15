@@ -36,6 +36,9 @@ function CodeAI() {
   };
 
   useEffect(() => {
+    if (!loading && response) {
+      responseAreaRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
     const startWebsite = async () => {
       try {
         let response = await axios.get(
@@ -55,7 +58,7 @@ function CodeAI() {
     };
 
     startWebsite();
-  }, []);
+  }, [loading, response]);
 
   return isBackendReady ? (
     <>
