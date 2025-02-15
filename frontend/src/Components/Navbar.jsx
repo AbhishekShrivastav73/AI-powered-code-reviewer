@@ -8,7 +8,7 @@ function Navbar() {
       </Link>
       <div className="flex items-center gap-4">
         
-        <Link to={'https://github.com/AbhishekShrivastav73'} className="bg-[#0095ff] hidden md:block text-[#E6EDF3]  px-6 py-1 rounded-full font-bold ">
+        <Link to={'https://github.com/AbhishekShrivastav73'} className="bg-[#0095ff]  text-[#E6EDF3]  px-6 py-1 rounded-full font-bold ">
           <span className="mr-2">GitHub</span>
           <i className="text-lg text-white ri-github-fill"></i>
         </Link>
