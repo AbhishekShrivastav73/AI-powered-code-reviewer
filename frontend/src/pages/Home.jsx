@@ -19,7 +19,7 @@ and other popular frameworks! 🚀</h6>
               AI-Powered Code Review
               <img
                 src="https://imgs.search.brave.com/hS8LtKrYPRqMPAn-zpkObgZkPKXoiofr5aNza0_siNs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG40/Lmljb25maW5kZXIu/Y29tL2RhdGEvaWNv/bnMvYWR2ZXJ0aXNp/bmctbWVkaWEtMS82/NC9BZHZlcnRpc2lu/Z19fTWVkaWFfSWNv/bnMtMTAtMTI4LnBu/Zw"
-                className="w-12 absolute -top-8 -right-4 md:-right-6 rounded-xl "
+                className="w-12 absolute -top-10 -right-4 md:-right-6 rounded-xl "
                 alt=""
               />
             </b>{" "}
