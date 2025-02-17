@@ -10,7 +10,7 @@
 [![GitHub license](https://img.shields.io/github/license/AbhishekShrivastav73/AI-powered-code-reviewer?style=for-the-badge)](https://github.com/AbhishekShrivastav73/AI-powered-code-reviewer/blob/main/LICENSE)  
 
 ## ⚡ **Overview**  
-AI-Powered Code Reviewer is an **intelligent assistant** that helps developers write **cleaner, optimized, and more secure code** by providing **detailed feedback, best practices, and performance improvements.** 🚀  
+AI-Powered Code Reviewer is an **intelligent assistant** that helps developers write **cleaner, optimized, and more secure code** by providing **detailed feedback, best practices, and performance improvements** 🚀  
 
 🔹 **Instant Code Review** – Get real-time suggestions!  
 🔹 **Best Practices & Optimization** – Improve performance & maintainability.  
