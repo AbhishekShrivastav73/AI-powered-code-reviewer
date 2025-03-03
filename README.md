@@ -3,7 +3,7 @@
 
 # 🚀 AI-Powered Code Reviewer 🤖  
 
-### **An Intelligent Code Review Assistant for Developers!**  
+### **An Intelligent Code Review Assistant for Developers!!** 
 
 [![GitHub stars](https://img.shields.io/github/stars/AbhishekShrivastav73/AI-powered-code-reviewer?style=for-the-badge)](https://github.com/AbhishekShrivastav73/AI-powered-code-reviewer/stargazers)  
 [![GitHub forks](https://img.shields.io/github/forks/AbhishekShrivastav73/AI-powered-code-reviewer?style=for-the-badge)](https://github.com/AbhishekShrivastav73/AI-powered-code-reviewer/network)  
