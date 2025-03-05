@@ -15,7 +15,7 @@ AI-Powered Code Reviewer is an **intelligent assistant** that helps developers w
 🔹 **Instant Code Review** – Get real-time suggestions!  
 🔹 **Best Practices & Optimization** – Improve performance & maintainability.  
 🔹 **Bug Detection & Security Checks** – Identify vulnerabilities early.  
-🔹 **Supports Multiple Languages** – Works with JavaScript, Python, and more!  
+🔹 **Supports Multiple Languages** – Works with JavaScript, Python, and more 
 
 ---
 
